@@ -1,0 +1,32 @@
+<div class="task-list">
+  <ng-container *ngFor="let taskItem of taskList">
+    <div class="task">
+      <div class="task-detail">
+        <div class="task-info">
+          <input type="checkbox" [id]="taskItem.task.id"
+                 (change)="handleTickTask($event, taskItem)"
+                 [checked]="taskItem.checkedTask">
+          <label [title]="taskItem.task.title" [for]="taskItem.task.id">{{taskItem.task.title}}</label>
+        </div>
+
+        <div class="task-actions">
+          <button class="btn btn-secondary" (click)="showTaskForm(taskItem)">Detail</button>
+          <button class="btn btn-danger" (click)="handleRemoveTask(taskItem.task)">Remove</button>
+        </div>
+      </div>
+      <div class="task-update-form" *ngIf="taskItem.showDetail">
+        <app-task-form [titleButton]="'Update'" [task]="taskItem.task"
+                       (submitTaskForm)="handleSubmitTaskForm($event, taskItem.task)">
+        </app-task-form>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<div class="bulk-action" *ngIf="shouldShowBulkAction">
+  <div class="bulk-action-title">Bulk Action:</div>
+  <div class="actions">
+    <button class="btn btn-primary" (click)="markDoneTask()">Done</button>
+    <button class="btn btn-danger" (click)="removeMultipleTask()">Remove</button>
+  </div>
+</div>

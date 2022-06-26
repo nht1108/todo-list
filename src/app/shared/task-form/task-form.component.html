@@ -1,0 +1,34 @@
+<form [formGroup]="taskForm" (ngSubmit)="handleSubmitTaskForm()">
+  <div class="form-control">
+    <input type="text" [formControl]="titleControl" class="input-field" placeholder="Add new task...">
+    <div *ngIf="titleControl.touched && titleControl.errors && titleControl.errors['required']"
+         class="input-error">
+      Task title is required
+    </div>
+  </div>
+
+  <div class="form-control">
+    <label for="desc">Description</label>
+    <textarea [formControl]="descriptionControl" class="input-field" id="desc" cols="30" rows="10"></textarea>
+  </div>
+
+  <div class="row">
+    <div class="form-control">
+      <label for="due-date">Due Date</label>
+      <input type="date" [formControl]="dueDateControl" id="due-date" class="input-field">
+      <div *ngIf="dueDateControl.dirty && dueDateControl.errors && dueDateControl.errors['invalidDate']"
+           class="input-error">
+        Due date is not valid
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="priority">Priority</label>
+      <select [formControl]="priorityControl" class="input-field" id="priority">
+        <option *ngFor="let priority of priorityList" [value]="priority.value">{{priority.title}}</option>
+      </select>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="taskForm.invalid" class="btn btn-100 btn-success">{{titleButton}}</button>
+</form>

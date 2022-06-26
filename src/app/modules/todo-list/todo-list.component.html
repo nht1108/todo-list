@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="new-task-section">
+    <app-new-task></app-new-task>
+  </div>
+
+  <div class="todo-list-section">
+    <h2 class="todo-list-title">To Do List</h2>
+
+    <div class="form-control">
+      <input type="text" class="input-field"
+             [formControl]="searchControl"
+             (input)="handleSearchTask()"
+             placeholder="Search...">
+    </div>
+
+    <app-task-list [tasks]="tasks"
+                   (updateTask)="updateTask($event)"
+                   (removeTask)="removeTask($event)"
+                   (removeTasks)="removeMultipleTask($event)">
+    </app-task-list>
+  </div>
+</div>

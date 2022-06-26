@@ -1,0 +1,44 @@
+@import "color";
+
+@mixin install-button-style() {
+  .btn {
+    border-radius: 4px;
+    padding: 10px 16px;
+    min-width: 80px;
+    transition: .15s;
+
+    &:hover {
+      opacity: .9;
+    }
+
+    &:disabled {
+      background-color: $gray;
+      cursor: unset;
+      opacity: 1;
+    }
+
+    &-primary {
+      background-color: $primary;
+      color: $white;
+    }
+
+    &-secondary {
+      background-color: $secondary;
+      color: $white;
+    }
+
+    &-success {
+      background-color: $success;
+      color: $white;
+    }
+
+    &-danger {
+      background-color: $danger;
+      color: $white;
+    }
+
+    &-100 {
+      width: 100%;
+    }
+  }
+}

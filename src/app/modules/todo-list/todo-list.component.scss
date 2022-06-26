@@ -1,0 +1,47 @@
+@import "src/app/styles/color";
+@import "src/app/styles/breakpoints";
+
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-task-section {
+  flex: 1 1 40%;
+  padding: 0 30px 16px;
+  border-bottom: 1px solid $gray;
+}
+
+.todo-list-section {
+  flex: 1 1 60%;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #BDBDBD;
+}
+
+.todo-list-title {
+  font-size: 18px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+@include breakpoint-sm() {
+  .container {
+    flex-direction: row;
+  }
+
+  .new-task-section {
+    border-bottom: none;
+  }
+
+  .todo-list-section {
+    min-height: 100vh;
+  }
+}
+

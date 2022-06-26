@@ -1,0 +1,82 @@
+@import "src/app/styles/color";
+@import "src/app/styles/breakpoints";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.task {
+  margin-bottom: 16px;
+}
+
+.task-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid $gray;
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+
+  label {
+    cursor: pointer;
+    user-select: none;
+    margin: 0 12px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    max-width: calc(100vw - 320px);
+  }
+}
+
+.task-actions {
+  min-width: 180px;
+
+  .btn:last-child {
+    margin-left: 16px;
+  }
+}
+
+.task-update-form {
+  padding: 20px 20px;
+  border: 1px solid $gray;
+  border-top-width: 0;
+}
+
+input[type=checkbox] {
+  transform: scale(1.2);
+}
+
+.bulk-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 82px;
+  background: $light-gray;
+  margin: 0 -30px;
+}
+
+.actions {
+  .btn:last-child {
+    margin-left: 16px;
+  }
+}
+
+@include breakpoint-sm() {
+  .task-info {
+    label {
+      max-width: unset;
+      white-space: unset;
+      word-break: break-word;
+    }
+  }
+}
+

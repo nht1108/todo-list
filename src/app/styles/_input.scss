@@ -1,0 +1,26 @@
+@import "color";
+
+@mixin install-input-style() {
+  .input-field {
+    padding: 10px;
+    background: $white;
+    border: 1px solid $gray;
+    border-radius: 5px;
+    margin-bottom: 24px;
+    width: 100%;
+
+    &:hover {
+      border-color: $primary;
+    }
+
+    &:focus {
+      border-color: $primary;
+    }
+  }
+
+  label {
+    display: inline-block;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+}

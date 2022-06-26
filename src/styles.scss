@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+*,
+*:after,
+*:before {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  outline: none;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  :focus {
+    outline: none;
+  }
+}
+
+input,
+textarea {
+  outline: none;
+  border: none;
+
+  :focus {
+    outline: none;
+  }
+}
+
+@import "app/styles/button";
+@include install-button-style();
+
+@import "app/styles/input";
+@include install-input-style();

@@ -1,0 +1,33 @@
+@import 'src/app/styles/color';
+@import "src/app/styles/breakpoints";
+
+.row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .form-control {
+    flex: 1 1 50%;
+  }
+}
+
+.form-control {
+  position: relative;
+}
+
+.input-error {
+  position: absolute;
+  color: $danger;
+  bottom: 10px;
+  font-size: 11px;
+}
+
+@include breakpoint-md() {
+  .row {
+    flex-direction: row;
+
+    .form-control:last-child {
+      margin-left: 16px;
+    }
+  }
+}
